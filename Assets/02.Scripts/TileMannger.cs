@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TempleRun.Player;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TileMannger : MonoBehaviour
 {
@@ -33,7 +34,7 @@ public class TileMannger : MonoBehaviour
         playerSpeed = player.GetComponent<PlayerController>().playerSpeed;
 
         // 다음 타일을 생성할 위치가 플레이어보다 멀어지면 타일을 생성하고 마지막 타일을 삭제.
-        if (nextSpawnPoint.z - player.transform.position.z < 180f)
+        if (nextSpawnPoint.z - player.transform.position.z < 300f)
         {
             SpawnTile();
             DeleteTile();
@@ -56,20 +57,22 @@ public class TileMannger : MonoBehaviour
         tile.transform.SetParent(transform);
 
         // 타일의 끝 위치를 계산하여 저장.
-        lastTileEndPositionZ = nextSpawnPoint.z + TILE_LENGTH;
+        // lastTileEndPositionZ = nextSpawnPoint.z + TILE_LENGTH;
+        lastTileEndPositionZ = 80f;
     }
 
     // 타일 삭제 함수.
     private void DeleteTile()
     {
-        // 마지막 타일의 끝 위치가 일정 위치 이상 멀어지면 삭제.
-        if (lastTileEndPositionZ - player.transform.position.z < -10f)
+        // 플레이어의 위치가 마지막 타일의 끝 위치보다 멀어지면 삭제합니다.
+        if (player.transform.position.z > lastTileEndPositionZ + 80f)
         {
             Transform oldestTile = transform.GetChild(0);
             transform.GetChild(0).SetParent(null);
             Destroy(oldestTile.gameObject);
         }
     }
+
 }
 
 

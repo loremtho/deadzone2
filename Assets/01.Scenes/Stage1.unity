@@ -455,7 +455,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1229685239}
   clearCanvas: {fileID: 920192011}
   storeCanvas: {fileID: 0}
-  destinationDistance: 500
+  destinationDistance: 2000
   distanceSlider: {fileID: 843336079}
   distanceText: {fileID: 1511466396}
   coinManagerPrefab: {fileID: 0}
@@ -1667,7 +1667,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.21
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -5446,7 +5446,7 @@ PrefabInstance:
     - target: {fileID: 125211451564395879, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}
       propertyPath: minimumDistance
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 125211451564395879, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}
@@ -5456,7 +5456,7 @@ PrefabInstance:
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}
       propertyPath: maxHealth
-      value: 5
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}

@@ -130,6 +130,7 @@ namespace TempleRun.Player {
 
         private CoinManager coinManager; //코인 데이터 저장
         private SoundManager soundManager;
+        public AudioClip HitClip;
 
         private int currentLaneIndex = 1;
         private float[] lanePositions = new float[] { -5f, 0f, 5f };
@@ -468,6 +469,7 @@ namespace TempleRun.Player {
             if (other.gameObject.CompareTag("Obstacle")) //장애물에 부딪히면 체력 감소 처리
             {
                 TakeDamage(2);
+                SoundManager.instance.SoundPlay("Hit", HitClip);
             }
 
             if (other.gameObject.CompareTag("Portion")) //포션에 부딪히면 체력 증가 처리

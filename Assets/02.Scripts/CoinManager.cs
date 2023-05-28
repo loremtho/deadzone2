@@ -7,11 +7,13 @@ public class CoinManager : MonoBehaviour
     private static CoinManager instance;
     public static CoinManager Instance { get { return instance; } }
 
-
-    public Data data;
-
     private int coin = 500;
-    public int Coin { get { return coin; } }
+
+    public int Coin
+    {
+        get { return coin; } // 코인 값을 반환
+        set { coin = value; } // 코인 값을 설정
+    }
 
     private TextMeshProUGUI coinText;
     private bool coinTextInitialized = false;
@@ -47,6 +49,8 @@ public class CoinManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

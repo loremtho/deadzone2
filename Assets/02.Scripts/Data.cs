@@ -24,34 +24,28 @@ public class Data : MonoBehaviour
 
     public void JsonLoad()
     {
-        SaveData saveData = new SaveData();
-
         if (!File.Exists(path))
         {
-            GameManager.instance.playerGold = 100;
-            GameManager.instance.playerPower = 4;
+            GameManager.instance.Coin = 100; // 플레이어 골드를 코인으로 변경
+            GameManager.instance.maxHealth = 4; // 플레이어 파워를 최대 체력으로 변경
             JsonSave();
         }
         else
         {
             string loadJson = File.ReadAllText(path);
-            saveData = JsonUtility.FromJson<SaveData>(loadJson);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(loadJson);
 
             if (saveData != null)
             {
-                for (int i = 0; i < saveData.testDataA.Count; i++)
-                {
-                    GameManager.instance.testDataA.Add(saveData.testDataA[i]);
-                }
-                for (int i = 0; i < saveData.testDataB.Count; i++)
-                {
-                    GameManager.instance.testDataB.Add(saveData.testDataB[i]);
-                }
-                GameManager.instance.playerGold = saveData.Coin;
-                GameManager.instance.playerPower = saveData.maxHealth;
+                GameManager.instance.testDataA = saveData.testDataA;
+                GameManager.instance.testDataB = saveData.testDataB;
+                GameManager.instance.Coin = saveData.Coin; // 플레이어 골드를 코인으로 변경
+                GameManager.instance.maxHealth = saveData.maxHealth; // 플레이어 파워를 최대 체력으로 변경
             }
         }
     }
+
+
 
     public void JsonSave()
     {
@@ -67,12 +61,12 @@ public class Data : MonoBehaviour
             saveData.testDataB.Add(i);
         }
 
+        saveData.Coin = GameManager.instance.Coin; // 플레이어의 골드를 코인으로 저장
+        saveData.maxHealth = GameManager.instance.maxHealth; // 플레이어의 파워를 최대 체력으로 저장
 
-        saveData.Coin = GameManager.instance.playerGold;
-        saveData.maxHealth = GameManager.instance.playerPower;
-
-        //저장
+        // 저장
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
     }
+
 }

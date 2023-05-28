@@ -455,12 +455,19 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1229685239}
   clearCanvas: {fileID: 920192011}
   storeCanvas: {fileID: 0}
-  destinationDistance: 2000
+  destinationDistance: 500
   distanceSlider: {fileID: 843336079}
   distanceText: {fileID: 1511466396}
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
+  shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
+  coinManager: {fileID: 0}
+  data: {fileID: 0}
+  testDataA: []
+  testDataB: 
+  playerGold: 0
+  playerPower: 0
   MenuUI: {fileID: 1154455611}
 --- !u!4 &70919156
 Transform:
@@ -5762,7 +5769,7 @@ PrefabInstance:
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}
       propertyPath: destinationDistance
-      value: 2000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}

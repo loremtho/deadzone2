@@ -16,6 +16,5 @@ public class Particle : MonoBehaviour
             particle.transform.position = new Vector3(transform.position.x,transform.position.y + 1.5f,transform.position.z);
             Destroy(particle, destroyDelay);
         }
-
     }
 }

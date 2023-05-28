@@ -195,7 +195,7 @@ namespace TempleRun.Player {
 
             Vector3 targetPosition = new Vector3(lanePositions[currentLaneIndex], transform.position.y, transform.position.z); //플레이어 왼쪽 이동
             controller.Move(targetPosition - transform.position);
-
+            SoundManager.instance.SoundPlay("Movement", MovementClip);
             animator.Play(leftrunAnimationld);
 
         }
@@ -211,7 +211,7 @@ namespace TempleRun.Player {
 
             Vector3 targetPosition = new Vector3(lanePositions[currentLaneIndex], transform.position.y, transform.position.z); //플레이어 오른쪽 이동
             controller.Move(targetPosition - transform.position);
-
+            SoundManager.instance.SoundPlay("Movement", MovementClip);
             animator.Play(rightAnimationld);
 
         }
@@ -221,6 +221,7 @@ namespace TempleRun.Player {
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * gravity * -5f); // 점프 동작 구현
                 controller.Move(playerVelocity * Time.deltaTime);
+                SoundManager.instance.SoundPlay("Movement", MovementClip);
                 animator.Play(jumpAnimationId);
             }
         }
@@ -229,6 +230,7 @@ namespace TempleRun.Player {
 
             if (!sliding && IsGrounded())
             {
+                SoundManager.instance.SoundPlay("Movement", MovementClip);
                 StartCoroutine(Slide());
             }
         }
@@ -271,8 +273,7 @@ namespace TempleRun.Player {
         {
             if(!sliding && IsGrounded())
             {
-                StartCoroutine(Slide());
-                SoundManager.instance.SoundPlay("Movement", MovementClip);
+                StartCoroutine(Slide());               
             }
         }
         private IEnumerator Slide()

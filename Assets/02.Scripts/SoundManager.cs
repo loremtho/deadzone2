@@ -37,6 +37,7 @@ public class SoundManager : MonoBehaviour
     }
 
 
+
     public void SoundPlay(string SoundName,AudioClip clip)
     {
         GameObject go = new GameObject(SoundName + "Sound");

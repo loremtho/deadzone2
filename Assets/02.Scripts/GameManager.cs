@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     
 
     public static GameManager instance;
-
+    private Data data;
     //제이슨 데이터
     public List<string> testDataA = new List<string>();
     public List<int> testDataB = new List<int>();
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         // 게임 매니저가 이미 있는 경우 중복 생성을 방지하기 위해 검사
         if (coinManagerInstance == null)
         {
-            //CreateCoinManager();
+            CreateCoinManager();
         }
 
         if (playerStatsInstance == null)
@@ -123,7 +123,16 @@ public class GameManager : MonoBehaviour
 
     }
 
-    /*
+    // 최대 체력 값이 변경될 때마다 데이터 제이슨에 저장
+    public void UpdateMaxHealth(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+
+        // 데이터 제이슨에 저장
+        data.JsonSave();
+    }
+
+    
     private void CreateCoinManager()
     {
         if (coinManagerPrefab != null)
@@ -137,6 +146,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
     private void CreatePlayerStats()
     {
         if (playerStatsPrefab != null)
@@ -150,6 +160,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    
     private void CreateShopManager()
     {
         if (shopManagerPrefad != null)
@@ -162,8 +173,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("ShopManager prefab is missing!");
         }
     }
-
     */
+    
 
     //이 버튼을 누르면
     public void RestartGame()

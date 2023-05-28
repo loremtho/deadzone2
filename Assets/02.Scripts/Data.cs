@@ -16,6 +16,12 @@ public class Data : MonoBehaviour
 {
     string path;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         path = Path.Combine(Application.dataPath, "database.json");
@@ -41,11 +47,11 @@ public class Data : MonoBehaviour
                 GameManager.instance.testDataB = saveData.testDataB;
                 GameManager.instance.Coin = saveData.Coin; // 플레이어 골드를 코인으로 변경
                 GameManager.instance.maxHealth = saveData.maxHealth; // 플레이어 파워를 최대 체력으로 변경
+                CoinManager.Instance.Coin = saveData.Coin; // 코인 값을 코인 매니저에 설정
+                
             }
         }
     }
-
-
 
     public void JsonSave()
     {
@@ -68,5 +74,4 @@ public class Data : MonoBehaviour
         string json = JsonUtility.ToJson(saveData, true);
         File.WriteAllText(path, json);
     }
-
 }

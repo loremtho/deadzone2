@@ -30,8 +30,8 @@ public class CoinManager : MonoBehaviour
         }
 
         instance = this;
-      
 
+        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 

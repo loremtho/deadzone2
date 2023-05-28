@@ -190,8 +190,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 5
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -337,14 +337,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogStrings:
   - "\uCC55\uD130 1: \uC5F0\uAD6C\uC18C\uC758 \uBE44\uBC00"
-  - "\uC8FC\uC778\uACF5\uC740 \uC5F0\uAD6C\uC18C\uB85C \uD30C\uACAC\uB418\uC5B4 \uBC31\uC2E0
-    \uAC1C\uBC1C\uC5D0 \uD544\uC694\uD55C \uC911\uC694\uD55C \uC131\uBD84\uC744 \uAD6C\uD574\uC624\uB294
-    \uC784\uBB34\uB97C \uBC1B\uC2B5\uB2C8\uB2E4."
-  - "\uADF8\uB7EC\uB098 \uC5F0\uAD6C\uC18C \uB0B4\uBD80\uC5D0\uC11C\uB294 \uC704\uAE30\uC640
+  - "\uC8FC\uC778\uACF5\uC740 \uC5F0\uAD6C\uC18C\uB85C \uD30C\uACAC\uB418\uC5B4                     
+    \uBC31\uC2E0 \uAC1C\uBC1C\uC5D0 \uD544\uC694\uD55C \uC911\uC694\uD55C \uC131\uBD84\uC744          
+    \uAD6C\uD574\uC624\uB294 \uC784\uBB34\uB97C \uBC1B\uB294\uB2E4."
+  - "\uADF8\uB7EC\uB098 \uC5F0\uAD6C\uC18C \uB0B4\uBD80\uC5D0\uC11C\uB294 \uC704\uAE30\uC640      
     \uC758\uBB38\uC2A4\uB7EC\uC6B4 \uC0AC\uAC74\uB4E4\uC774 \uBC8C\uC5B4\uC9C0\uACE0
-    \uC788\uC2B5\uB2C8\uB2E4."
-  - "\uC8FC\uC778\uACF5\uC740 \uC5F0\uAD6C\uC18C\uB97C \uD0D0\uC0C9\uD558\uACE0 \uBE44\uBC00\uC744
-    \uD574\uACB0\uD574\uC57C \uD569\uB2C8\uB2E4."
+    \uC788\uB2E4."
+  - "\uC8FC\uC778\uACF5\uC740 \uC5F0\uAD6C\uC18C\uB97C \uD0D0\uC0C9\uD558\uACE0                    
+    \uBE44\uBC00\uC744 \uD574\uACB0\uD574\uC57C \uD55C\uB2E4."
   textObj: {fileID: 257058021}
 --- !u!114 &334929462
 MonoBehaviour:
@@ -358,8 +358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0c3e2575bad8c44e9948f62082d1c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForCharacter: 0.05
-  timeForCharacter_Fast: 0.01
+  timeForCharacter: 0.03
+  timeForCharacter_Fast: 0.005
   SkipButton: {fileID: 1700123937}
 --- !u!4 &334929463
 Transform:
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: SKIP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21fb82f37d2c63f4db58af006d4d8ea7, type: 2}
   m_sharedMaterial: {fileID: 5821171896445551642, guid: 21fb82f37d2c63f4db58af006d4d8ea7,
@@ -671,6 +671,7 @@ MonoBehaviour:
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
   shopManager: {fileID: 0}
+  ButtonClip: {fileID: 8300000, guid: 53b2f470b1d58864c8ce3232b718bb00, type: 3}
   MenuUI: {fileID: 0}
 --- !u!4 &1053719414
 Transform:
@@ -887,7 +888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1700123936
 RectTransform:
   m_ObjectHideFlags: 0

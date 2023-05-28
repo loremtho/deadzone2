@@ -111,11 +111,12 @@ public class TypingManager : MonoBehaviour
         {
             isTypingEnd = true;
             dialogNumber++;
-            // 버튼 활성화
-            if (dialogNumber >= dialogsSave.Length)
+            // 버튼 활성화 // 테스트중이라 비활성화
+            
+            /*if (dialogNumber >= dialogsSave.Length)
             {
                 SkipButton.gameObject.SetActive(true);
-            }
+            }*/
             yield break;
         }
     }

@@ -461,6 +461,7 @@ MonoBehaviour:
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
   shopManager: {fileID: 0}
+  ButtonClip: {fileID: 8300000, guid: 53b2f470b1d58864c8ce3232b718bb00, type: 3}
   MenuUI: {fileID: 1154455611}
 --- !u!4 &70919156
 Transform:
@@ -5700,4 +5701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8110b5ec85bc8dd4b99d84648f1fcb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1689496872983274972}
+  mixer: {fileID: 0}
+  Bgm: {fileID: 0}
+  BgmList: []

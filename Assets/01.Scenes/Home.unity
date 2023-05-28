@@ -574,6 +574,7 @@ MonoBehaviour:
   playerStatsPrefab: {fileID: 7171886420781029189, guid: 6336615aea4d0854e81acb3aba2499c6,
     type: 3}
   shopManager: {fileID: 1661653270}
+  ButtonClip: {fileID: 8300000, guid: 53b2f470b1d58864c8ce3232b718bb00, type: 3}
   MenuUI: {fileID: 0}
 --- !u!4 &215414932
 Transform:
@@ -2233,6 +2234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8110b5ec85bc8dd4b99d84648f1fcb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 389b22ed1fa74e4459ce95df22828b1b, type: 2}
   Bgm: {fileID: 2096876423}
   BgmList:
   - {fileID: 8300000, guid: f0e5318da87798a4aba64279940b54fc, type: 3}
@@ -2248,7 +2250,8 @@ AudioSource:
   m_GameObject: {fileID: 2096876420}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6645091792854136121, guid: 389b22ed1fa74e4459ce95df22828b1b,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

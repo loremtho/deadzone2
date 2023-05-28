@@ -670,6 +670,7 @@ MonoBehaviour:
   distanceText: {fileID: 0}
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
+  shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
   MenuUI: {fileID: 0}
 --- !u!4 &1053719414
@@ -887,7 +888,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1700123936
 RectTransform:
   m_ObjectHideFlags: 0

@@ -573,7 +573,9 @@ MonoBehaviour:
     type: 3}
   playerStatsPrefab: {fileID: 7171886420781029189, guid: 6336615aea4d0854e81acb3aba2499c6,
     type: 3}
-  shopManager: {fileID: 1661653270}
+  shopManagerPrefad: {fileID: 6429579527573008103, guid: 1dfa57ed5ba63214684ccf6ba7e3e793,
+    type: 3}
+  shopManager: {fileID: 0}
   MenuUI: {fileID: 0}
 --- !u!4 &215414932
 Transform:
@@ -1628,50 +1630,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582008058}
   m_CullTransparentMesh: 1
---- !u!1 &1661653269
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1661653271}
-  - component: {fileID: 1661653270}
-  m_Layer: 0
-  m_Name: ShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1661653270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661653269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716ee8e6d435bec4aa9d005e071516e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1661653271
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1661653269}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 540, y: 960, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1723694499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2219,7 +2177,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096876422
 MonoBehaviour:
@@ -2239,6 +2197,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ec959253076be1a49a532cae1c1a2c01, type: 3}
   - {fileID: 8300000, guid: 68b90ac34d6813849a6d034eda34f8ff, type: 3}
   - {fileID: 8300000, guid: 6abc06c88ce1dfc40b9d23060294acbe, type: 3}
+  SFXList: []
 --- !u!82 &2096876423
 AudioSource:
   m_ObjectHideFlags: 0

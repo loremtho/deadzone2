@@ -2,26 +2,33 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public static ShopManager Instance { get; private set; }
+    public static ShopManager instance { get; private set; }
 
     private CoinManager coinManager;
     private PlayerStats playerStats;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;
+        instance = this;
 
         coinManager = CoinManager.Instance;
         playerStats = FindObjectOfType<PlayerStats>();
         coinManager = FindObjectOfType<CoinManager>();
+
+      
+       
     }
 
+    private void Start()
+    {
+        GameManager.instance.shopManager = this;
+    }
     public void BuyMaxHealthUpgrade(int price, int maxHealthIncrease)
     {
         if (coinManager != null && playerStats != null)

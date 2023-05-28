@@ -65,7 +65,7 @@ public class TileMannger : MonoBehaviour
     private void DeleteTile()
     {
         // 플레이어의 위치가 마지막 타일의 끝 위치보다 멀어지면 삭제합니다.
-        if (player.transform.position.z > lastTileEndPositionZ + 80f)
+        if (player.transform.position.z > lastTileEndPositionZ + 100f)
         {
             Transform oldestTile = transform.GetChild(0);
             transform.GetChild(0).SetParent(null);

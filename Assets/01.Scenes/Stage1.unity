@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2e589076bac33e445b15ccd81f54ad05, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2d0cdbcf2cf1ca742bcbb8882e7f4bfe, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.13060763, g: 0.09482264, b: 0.12541854, a: 1}
+  m_IndirectSpecularColor: {r: 0.037114576, g: 0.07002006, b: 0.12390474, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -455,7 +455,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1229685239}
   clearCanvas: {fileID: 920192011}
   storeCanvas: {fileID: 0}
-  destinationDistance: 2000
+  destinationDistance: 500
   distanceSlider: {fileID: 843336079}
   distanceText: {fileID: 1511466396}
   coinManagerPrefab: {fileID: 0}

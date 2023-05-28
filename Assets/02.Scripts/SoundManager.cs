@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     public AudioSource Bgm;
     public AudioClip[] BgmList;
+    public AudioClip[] SFXList;
 
     private void Awake()
     {

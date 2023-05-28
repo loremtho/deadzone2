@@ -93,9 +93,6 @@ namespace TempleRun.Player {
         private InputAction turnAction;
         private InputAction jumpAction;
         private InputAction slideAction;
-
-        private AudioSource coinSound;
-
         private Vector3 playerVelocity;
 
         // 캐릭터 컨트롤러, 슬라이딩 여부 등의 변수를 선언
@@ -131,6 +128,10 @@ namespace TempleRun.Player {
         private CoinManager coinManager; //코인 데이터 저장
         private SoundManager soundManager;
         public AudioClip HitClip;
+        public AudioClip HitDamageClip;
+        public AudioClip MovementClip;
+        public AudioClip DieClip;
+        public AudioClip CoinClip;
 
         private int currentLaneIndex = 1;
         private float[] lanePositions = new float[] { -5f, 0f, 5f };
@@ -229,12 +230,8 @@ namespace TempleRun.Player {
             if (!sliding && IsGrounded())
             {
                 StartCoroutine(Slide());
-
             }
-
         }
-
-
 
         private void Start()
         {
@@ -268,71 +265,15 @@ namespace TempleRun.Player {
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
 
-        }
-
-   
-
-
-        /*private void PlayerTurn(InputAction.CallbackContext context)
-        {
-            // 회전 가능 여부를 체크하고 회전을 처리/*
-            Vector3? turnPosition = CheckTurn(context.ReadValue<float>());
-            if(!turnPosition.HasValue)
-            {
-               // GameOver();
-                return;
-            }
-
-            Vector3 targetDirection = Quaternion.AngleAxis(90 * context.ReadValue<float>(), Vector3.up)*
-               movementDirection;
-            turnEvent.Invoke(targetDirection);
-            Turn(context.ReadValue<float>(),turnPosition.Value);
-        }
-
-        private Vector3? CheckTurn(float turnValue)
-        {
-            // 회전 가능 여부를 체크하고 회전할 위치를 반환
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, .1f, turnLayer);
-            if (hitColliders.Length != 0)
-            {
-                Tile tile = hitColliders[0].transform.parent.GetComponent<Tile>();
-                TileType type = tile.type;
-                if((type == TileType.LEFT && turnValue == -1) || 
-                   (type == TileType.RIGHT && turnValue == 1) ||
-                   (type == TileType.SIDEWAYS))
-                {
-                    return tile.pivot.position;
-                }
-            }
-
-            return null;
-        }
-
-
-        private void Turn(float turnValue, Vector3 turnPosition)
-        {
-            // 플레이어의 y 좌표는 그대로 두고, x와 z 좌표를 주어진 위치의 x와 z 좌표로 설정  //양옆 이동시 수정해야함
-            //Vector3 tempPlayerPosition = new Vector3(turnPosition.x, transform.position.y, turnPosition.z);
-            //transform.position = tempPlayerPosition;        //작동시 가운대로 고정
-            
-
-            controller.enabled = false; // 캐릭터 컨트롤러를 끄고 위치를 변경한 뒤, 다시 켜서 이동을 적용
-            controller.enabled = true;
-
-
-            Quaternion targetRotation = transform.rotation * Quaternion.Euler(0, 90 * turnValue, 0); // 플레이어를 90도 회전시키는 쿼터니언 생성
-            transform.rotation = targetRotation;   // 플레이어의 회전을 적용
-            movementDirection = transform.forward.normalized;  // 플레이어의 이동 방향 벡터를 현재 바라보는 방향으로 설정
-        }*/
+        }      
 
         private void PlayerSlide(InputAction.CallbackContext context) // 슬라이드 함수: 슬라이드 중이 아니고 바닥에 닿아있을 경우에만 동작
         {
             if(!sliding && IsGrounded())
             {
                 StartCoroutine(Slide());
-
+                SoundManager.instance.SoundPlay("Movement", MovementClip);
             }
-
         }
         private IEnumerator Slide()
         {
@@ -363,6 +304,7 @@ namespace TempleRun.Player {
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * gravity * -3f); // 점프 동작 구현
                 controller.Move(playerVelocity * Time.deltaTime);
+                SoundManager.instance.SoundPlay("Monement", MovementClip);
                 animator.Play(jumpAnimationId);
             }
         }
@@ -470,6 +412,7 @@ namespace TempleRun.Player {
             {
                 TakeDamage(2);
                 SoundManager.instance.SoundPlay("Hit", HitClip);
+                SoundManager.instance.SoundPlay("HitDamager", HitDamageClip);
             }
 
             if (other.gameObject.CompareTag("Portion")) //포션에 부딪히면 체력 증가 처리
@@ -483,6 +426,7 @@ namespace TempleRun.Player {
                 Destroy(other.gameObject); // 충돌한 코인 오브젝트 파괴
                 score += 10;
                 scoreText.text = "Score: " + score.ToString(); //점수증가
+                SoundManager.instance.SoundPlay("Coin", CoinClip);
                 //CoinManager.Instance.AddCoin(1); // 코인 매니저에 코인 추가
             }
 

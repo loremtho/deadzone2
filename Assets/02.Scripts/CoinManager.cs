@@ -7,6 +7,9 @@ public class CoinManager : MonoBehaviour
     private static CoinManager instance;
     public static CoinManager Instance { get { return instance; } }
 
+
+    public Data data;
+
     private int coin = 500;
     public int Coin { get { return coin; } }
 
@@ -25,11 +28,15 @@ public class CoinManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
+      
 
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        GameManager.instance.coinManager= this;
+    }
     public void StartTrackingCoinText()
     {
         // 코인 텍스트 추적 시작

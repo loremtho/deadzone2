@@ -670,6 +670,7 @@ MonoBehaviour:
   distanceText: {fileID: 0}
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
+  shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
   ButtonClip: {fileID: 8300000, guid: 53b2f470b1d58864c8ce3232b718bb00, type: 3}
   MenuUI: {fileID: 0}

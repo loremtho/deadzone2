@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public InterstitialAd interstitialAd;
 
+
   
 
 	private GameObject PauseCanvas;
@@ -43,14 +44,17 @@ public class GameManager : MonoBehaviour
     public ShopManager shopManager;
     public CoinManager coinManager;
 
-    public Data data;
+    
 
     public static GameManager instance;
 
+    //제이슨 데이터
     public List<string> testDataA = new List<string>();
     public List<int> testDataB = new List<int>();
-    public int playerGold;
-    public int playerPower;
+    public int Coin;  
+    public int maxHealth;
+   
+
 
     [SerializeField] 
 	private GameObject MenuUI;
@@ -101,6 +105,22 @@ public class GameManager : MonoBehaviour
 
 
         coinManager = CoinManager.Instance;
+    }
+
+      void Start()
+	{
+        playerController = FindObjectOfType<PlayerController>();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if(SceneManager.GetActiveScene().name == "Stage1")
+        {
+           rewardedAdsButton._showAdButton.interactable = true;
+        }
+
+        //shopManager = FindObjectOfType<ShopManager>();
+
+        Data data = GetComponent<Data>();
+        data.JsonLoad();
+
     }
 
     /*
@@ -195,18 +215,7 @@ public class GameManager : MonoBehaviour
 
 	}
 
-    void Start()
-	{
-        playerController = FindObjectOfType<PlayerController>();
-        Debug.Log(SceneManager.GetActiveScene().name);
-        if(SceneManager.GetActiveScene().name == "Stage1")
-        {
-           rewardedAdsButton._showAdButton.interactable = true;
-        }
-
-        //shopManager = FindObjectOfType<ShopManager>();
-
-    }
+  
 
     public void Skip()
     {

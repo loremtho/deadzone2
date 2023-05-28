@@ -58,7 +58,7 @@ public class TileMannger : MonoBehaviour
 
         // 타일의 끝 위치를 계산하여 저장.
         // lastTileEndPositionZ = nextSpawnPoint.z + TILE_LENGTH;
-        lastTileEndPositionZ = 80f;
+        lastTileEndPositionZ = 100f;
     }
 
     // 타일 삭제 함수.

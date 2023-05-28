@@ -2304,13 +2304,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8110b5ec85bc8dd4b99d84648f1fcb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 389b22ed1fa74e4459ce95df22828b1b, type: 2}
   Bgm: {fileID: 2096876423}
   BgmList:
   - {fileID: 8300000, guid: f0e5318da87798a4aba64279940b54fc, type: 3}
   - {fileID: 8300000, guid: ec959253076be1a49a532cae1c1a2c01, type: 3}
   - {fileID: 8300000, guid: 68b90ac34d6813849a6d034eda34f8ff, type: 3}
   - {fileID: 8300000, guid: 6abc06c88ce1dfc40b9d23060294acbe, type: 3}
-  SFXList: []
 --- !u!82 &2096876423
 AudioSource:
   m_ObjectHideFlags: 0

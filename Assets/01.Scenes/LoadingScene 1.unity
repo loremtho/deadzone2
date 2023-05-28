@@ -434,7 +434,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: skip
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 21fb82f37d2c63f4db58af006d4d8ea7, type: 2}
   m_sharedMaterial: {fileID: 5821171896445551642, guid: 21fb82f37d2c63f4db58af006d4d8ea7,
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -670,7 +670,14 @@ MonoBehaviour:
   distanceText: {fileID: 0}
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
+  shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
+  coinManager: {fileID: 0}
+  data: {fileID: 0}
+  testDataA: []
+  testDataB: 
+  playerGold: 0
+  playerPower: 0
   MenuUI: {fileID: 0}
 --- !u!4 &1053719414
 Transform:
@@ -887,7 +894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1700123936
 RectTransform:
   m_ObjectHideFlags: 0

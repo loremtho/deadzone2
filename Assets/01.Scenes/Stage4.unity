@@ -423,7 +423,14 @@ MonoBehaviour:
   distanceText: {fileID: 0}
   coinManagerPrefab: {fileID: 0}
   playerStatsPrefab: {fileID: 0}
+  shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
+  coinManager: {fileID: 0}
+  data: {fileID: 0}
+  testDataA: []
+  testDataB: 
+  playerGold: 0
+  playerPower: 0
   MenuUI: {fileID: 1154455611}
 --- !u!4 &70919156
 Transform:

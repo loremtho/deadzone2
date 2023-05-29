@@ -463,11 +463,10 @@ MonoBehaviour:
   shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
   coinManager: {fileID: 0}
-  data: {fileID: 0}
   testDataA: []
   testDataB: 
-  playerGold: 0
-  playerPower: 0
+  Coin: 0
+  maxHealth: 0
   MenuUI: {fileID: 1154455611}
 --- !u!4 &70919156
 Transform:
@@ -1403,7 +1402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 7270030239991754380, guid: accea00fb191f9a478a124754e29ecdf, type: 3}
+  - {fileID: 7270030239991754380, guid: 9d7e4d4568bb0c24eb137260366bd1ef, type: 3}
   - {fileID: 7270030239991754380, guid: 35d9a86fd1aff1e4a9f1403dbdfd3d2d, type: 3}
   - {fileID: 7270030239991754380, guid: dddbc5282a12f5643912fa145a5f4723, type: 3}
   - {fileID: 7270030239991754380, guid: dd8d21007d445b2488035b0b215b6da1, type: 3}

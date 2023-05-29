@@ -455,7 +455,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1229685239}
   clearCanvas: {fileID: 920192011}
   storeCanvas: {fileID: 0}
-  destinationDistance: 500
+  destinationDistance: 3000
   distanceSlider: {fileID: 843336079}
   distanceText: {fileID: 1511466396}
   coinManagerPrefab: {fileID: 0}
@@ -463,9 +463,7 @@ MonoBehaviour:
   shopManagerPrefad: {fileID: 0}
   shopManager: {fileID: 0}
   coinManager: {fileID: 0}
-  testDataA: []
-  testDataB: 
-  Coin: 0
+  coin: 0
   maxHealth: 0
   MenuUI: {fileID: 1154455611}
 --- !u!4 &70919156

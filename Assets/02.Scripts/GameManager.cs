@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 	private GameObject PauseCanvas;
     public GameObject gameOverCanvas;
 	
+   
+
     public GameObject clearCanvas;
     bool Paused;
 	private bool isPaused = false;
@@ -309,9 +311,13 @@ public class GameManager : MonoBehaviour
 
     public void store()
     {
+
+
+        /*
         storeCanvas.SetActive(true);
         CoinManager.Instance.UpdateCoinText();
         Data.Instance.JsonSave();
+        */
     }
 
     public void storeExit()

@@ -9,11 +9,11 @@ public class Particle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Coin"))
         {
             Debug.Log("캐릭터 코인과 충돌");
             GameObject particle =  Instantiate(coin, transform.position, Quaternion.identity);
-            particle.transform.position = new Vector3(transform.position.x,transform.position.y + 1.5f,transform.position.z);
+            particle.transform.position = new Vector3(transform.position.x,transform.position.y + 1.5f,transform.position.z +1.5f);
             Destroy(particle, destroyDelay);
         }
     }

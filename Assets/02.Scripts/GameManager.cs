@@ -14,8 +14,6 @@ public class GameManager : MonoBehaviour
     public InterstitialAd interstitialAd;
 
 
-  
-
 	private GameObject PauseCanvas;
     public GameObject gameOverCanvas;
 	
@@ -44,20 +42,22 @@ public class GameManager : MonoBehaviour
     public ShopManager shopManager;
     public CoinManager coinManager;
 
-    
+   
+
+
+
 
     public static GameManager instance;
-    private Data data;
     //제이슨 데이터
-    public List<string> testDataA = new List<string>();
-    public List<int> testDataB = new List<int>();
-    public int Coin;  
-    public int maxHealth;
-   
+
+    [SerializeField] public int coin;
+    [SerializeField] public int maxHealth;
 
 
     [SerializeField] 
 	private GameObject MenuUI;
+
+    private Data data;
 
     // 체력 UI 업데이트 함수
 
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            
         }
         else
         {
@@ -74,12 +75,38 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        
+        data = FindObjectOfType<Data>();
+
+        if (data == null)
+        {
+            GameObject dataObject = new GameObject("Data");
+            data = dataObject.AddComponent<Data>();
+        }
+
+        // 데이터 로드
+        data.JsonLoad();
 
         // 게임 매니저가 이미 있는 경우 중복 생성을 방지하기 위해 검사
+        /*
+         if (coinManagerInstance == null)
+         {
+             CreateCoinManager();
+         }
+        */
+
+
         if (coinManagerInstance == null)
         {
-            CreateCoinManager();
+            // 이미 생성된 PlayerStats 인스턴스가 있는지 확인
+            CoinManager existingCoinManager = FindObjectOfType<CoinManager>();
+            if (existingCoinManager != null)
+            {
+                coinManagerInstance = existingCoinManager;
+            }
+            else
+            {
+                CreateCoinManager();
+            }
         }
 
         if (playerStatsInstance == null)
@@ -95,7 +122,7 @@ public class GameManager : MonoBehaviour
                 //CreatePlayerStats();
             }
         }
-    
+
 
         if (shopManagerInstance == null)
         {
@@ -103,8 +130,11 @@ public class GameManager : MonoBehaviour
         }
 
 
+        coinManagerInstance = CoinManager.Instance;
 
-        coinManager = CoinManager.Instance;
+     
+        data.JsonLoad();
+
     }
 
       void Start()
@@ -118,7 +148,6 @@ public class GameManager : MonoBehaviour
 
         //shopManager = FindObjectOfType<ShopManager>();
 
-        Data data = GetComponent<Data>();
         data.JsonLoad();
 
     }
@@ -128,11 +157,10 @@ public class GameManager : MonoBehaviour
     {
         maxHealth = newMaxHealth;
 
-        // 데이터 제이슨에 저장
+        // 데이터 저장
         data.JsonSave();
     }
 
-    
     private void CreateCoinManager()
     {
         if (coinManagerPrefab != null)
@@ -146,35 +174,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /*
-    private void CreatePlayerStats()
+    public int Coin
     {
-        if (playerStatsPrefab != null)
+        get { return coin; }
+        set
         {
-            playerStatsInstance = Instantiate(playerStatsPrefab).GetComponent<PlayerStats>();
-            DontDestroyOnLoad(playerStatsInstance.gameObject);
-        }
-        else
-        {
-            Debug.LogWarning("PlayerStats prefab is missing!");
+            coin = value;
+            // 데이터 저장
+            data.JsonSave();
         }
     }
 
-    
-    private void CreateShopManager()
+    public int MaxHealth
     {
-        if (shopManagerPrefad != null)
+        get { return maxHealth; }
+        set
         {
-            shopManagerInstance = Instantiate(shopManagerPrefad).GetComponent<ShopManager>();
-            DontDestroyOnLoad(shopManagerInstance.gameObject);
-        }
-        else
-        {
-            Debug.LogWarning("ShopManager prefab is missing!");
+            maxHealth = value;
+            // 데이터 저장
+            data.JsonSave();
         }
     }
-    */
-    
+
+
 
     //이 버튼을 누르면
     public void RestartGame()
@@ -269,7 +291,8 @@ public class GameManager : MonoBehaviour
     public void store()
     {
         storeCanvas.SetActive(true);
-        coinManager.UpdateCoinText();
+        CoinManager.Instance.UpdateCoinText();
+        Data.Instance.JsonSave();
     }
 
     public void storeExit()

@@ -40,6 +40,8 @@ public class ShopManager : MonoBehaviour
                 GameManager.instance.UpdateMaxHealth(maxHealthIncrease);
 
                 // 아이템을 구매하는 코드 작성
+
+                coinManager.SaveCoin();
             }
             else
             {

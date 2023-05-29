@@ -1,82 +1,65 @@
+using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class CoinManager : MonoBehaviour
 {
+    private int coin;
+
+    public TextMeshProUGUI coinText;
+
+
     private static CoinManager instance;
-    public static CoinManager Instance { get { return instance; } }
-
-    private int coin = 500;
-
-    public int Coin
+    public static CoinManager Instance
     {
-        get { return coin; } // 코인 값을 반환
-        set { coin = value; } // 코인 값을 설정
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<CoinManager>();
+                if (instance == null)
+                {
+                    GameObject coinManagerObject = new GameObject("CoinManager");
+                    instance = coinManagerObject.AddComponent<CoinManager>();
+                }
+            }
+            return instance;
+        }
     }
-
-    private TextMeshProUGUI coinText;
-    private bool coinTextInitialized = false;
-    
-    private bool isTrackingCoinText = false;
-
 
     private void Awake()
     {
-        if (instance != null && instance != this)
+        UpdateCoinText();
+        LoadInitialCoin();
+    }
+
+
+    private void LoadInitialCoin()
+    {
+        string path = Path.Combine(Application.dataPath, "database.json");
+        if (File.Exists(path))
         {
-            Destroy(gameObject);
-            return;
+            string loadJson = File.ReadAllText(path);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(loadJson);
+
+            if (saveData != null)
+            {
+                coin = saveData.Coin;
+            }
         }
 
-        instance = this;
-
-        DontDestroyOnLoad(gameObject);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        UpdateCoinText();
     }
 
-    private void Start()
+    public int Coin
     {
-        GameManager.instance.coinManager= this;
-    }
-    public void StartTrackingCoinText()
-    {
-        // 코인 텍스트 추적 시작
-        isTrackingCoinText = true;
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        FindCoinText();
-        InitializeCoinText();
-    }
-
-    private void Update()
-    {
-        if (!coinTextInitialized)
+        get { return coin; }
+        set
         {
-            FindCoinText();
-            InitializeCoinText();
-        }
-
-        if (isTrackingCoinText)
-        {
-            if (!coinTextInitialized)
-            {
-                FindCoinText();
-                InitializeCoinText();
-            }
-            else
-            {
-                UpdateCoinText();
-            }
+            coin = value;
+            UpdateCoinText();
+            SaveCoin();
         }
     }
 
@@ -84,27 +67,29 @@ public class CoinManager : MonoBehaviour
     {
         coin += amount;
         UpdateCoinText();
+        SaveCoin();
     }
 
     public void UpdateCoinText()
     {
-        if (coinText != null && coinText.gameObject.activeInHierarchy)
-        {
-            coinText.text = "Coin: " + coin.ToString();
-        }
-    }
-
-    private void FindCoinText()
-    {
-        coinText = GameObject.Find("CoinText")?.GetComponent<TextMeshProUGUI>();
-    }
-
-    private void InitializeCoinText()
-    {
+        TextMeshProUGUI coinText = FindObjectOfType<TextMeshProUGUI>();
         if (coinText != null)
         {
-            coinTextInitialized = true;
-            coinText.text = "Coin: " + coin.ToString();
+            coinText.text = coin.ToString();
         }
+    }
+
+
+    public void SaveCoin()
+    {
+        string path = Path.Combine(Application.dataPath, "database.json");
+
+        SaveData saveData = new SaveData();
+        saveData.Coin = coin;
+
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(path, json);
+
+        UpdateCoinText();
     }
 }

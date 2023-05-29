@@ -428,7 +428,7 @@ namespace TempleRun.Player {
                 score += 10;
                 scoreText.text = "Score: " + score.ToString(); //점수증가
                 SoundManager.instance.SoundPlay("Coin", CoinClip);
-                //CoinManager.Instance.AddCoin(1); // 코인 매니저에 코인 추가
+                CoinManager.Instance.AddCoin(1); // 코인 매니저에 코인 추가
             }
 
             if(other.gameObject.CompareTag("Magnet")) //자석 아이템에 부딪히면

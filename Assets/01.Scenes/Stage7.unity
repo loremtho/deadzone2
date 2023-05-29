@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 2d0cdbcf2cf1ca742bcbb8882e7f4bfe, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2e589076bac33e445b15ccd81f54ad05, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.037114576, g: 0.07002006, b: 0.12390474, a: 1}
+  m_IndirectSpecularColor: {r: 0.13060763, g: 0.09482264, b: 0.12541854, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -455,7 +455,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1229685239}
   clearCanvas: {fileID: 920192011}
   storeCanvas: {fileID: 0}
-  destinationDistance: 500
+  destinationDistance: 2000
   distanceSlider: {fileID: 843336079}
   distanceText: {fileID: 1511466396}
   coinManagerPrefab: {fileID: 0}
@@ -1402,11 +1402,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilePrefabs:
-  - {fileID: 7270030239991754380, guid: 9d7e4d4568bb0c24eb137260366bd1ef, type: 3}
-  - {fileID: 7270030239991754380, guid: 35d9a86fd1aff1e4a9f1403dbdfd3d2d, type: 3}
-  - {fileID: 7270030239991754380, guid: dddbc5282a12f5643912fa145a5f4723, type: 3}
-  - {fileID: 7270030239991754380, guid: dd8d21007d445b2488035b0b215b6da1, type: 3}
-  - {fileID: 7270030239991754380, guid: c71346222ef26dd478d87b08b18acad4, type: 3}
+  - {fileID: 7270030239991754380, guid: dd022f84ceafc0349ad82242018d0ec6, type: 3}
+  - {fileID: 7270030239991754380, guid: eda18e0fcca8be448a6ff2561dc2e8ce, type: 3}
+  - {fileID: 7270030239991754380, guid: 96cdd861ee8237d438066fb389966c84, type: 3}
+  - {fileID: 7270030239991754380, guid: 7d984e3ef2c2d9b419e16217b6742320, type: 3}
+  - {fileID: 7270030239991754380, guid: 3452be0f7d5502c40abfc01b01cc0e09, type: 3}
   player: {fileID: 1689496872983274966}
 --- !u!4 &632048833
 Transform:
@@ -1709,7 +1709,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 4.5904e-41, y: 0, z: 0, w: -0.000000004721336}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -1721,14 +1721,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_LocalRotation: {x: 0.3753037, y: -0.76327825, z: -0.1943022, w: 0.4886719}
+  m_LocalRotation: {x: 0.42260587, y: -0.4591428, z: -0.003231802, w: 0.7813972}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 4.025, y: -116.615, z: -49.881}
+  m_LocalEulerAnglesHint: {x: 41.108, y: -72.929, z: -31.45}
 --- !u!1 &718114065
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,7 +5619,7 @@ PrefabInstance:
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}
       propertyPath: destinationDistance
-      value: 500
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 635596493498265796, guid: 2f8bb5a6a98fefa4aa6691105edccd3a,
         type: 3}

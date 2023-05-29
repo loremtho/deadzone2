@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public InterstitialAd interstitialAd;
 
-    public static GameManager instance;
+
+  
 
 	private GameObject PauseCanvas;
     public GameObject gameOverCanvas;
@@ -30,19 +32,29 @@ public class GameManager : MonoBehaviour
 
     public GameObject coinManagerPrefab;   // 코인 매니저 프리팹
     public GameObject playerStatsPrefab;   // 플레이어 스탯 프리팹
+    public GameObject shopManagerPrefad;   // 상점 매니저 프리펩
 
     private CoinManager coinManagerInstance;   // 생성된 코인 매니저 인스턴스
     private PlayerStats playerStatsInstance;   // 생성된 플레이어 스탯 인스턴스
-
+    private ShopManager shopManagerInstance;   // 생성된 상점 매니저 인스턴스
 
     private PlayerController playerController;
     private int currentHealth;
     private PlayerStats playerStats;
     public ShopManager shopManager;
+    public CoinManager coinManager;
 
-    private CoinManager coinManager;
+    
 
-    //public Button pauseButton;
+    public static GameManager instance;
+    private Data data;
+    //제이슨 데이터
+    public List<string> testDataA = new List<string>();
+    public List<int> testDataB = new List<int>();
+    public int Coin;  
+    public int maxHealth;
+   
+
 
     [SerializeField] 
 	private GameObject MenuUI;
@@ -62,7 +74,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        shopManager = FindObjectOfType<ShopManager>();
+        
 
         // 게임 매니저가 이미 있는 경우 중복 생성을 방지하기 위해 검사
         if (coinManagerInstance == null)
@@ -80,17 +92,47 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                CreatePlayerStats();
+                //CreatePlayerStats();
             }
         }
-        ShopManager existingShopManager = FindObjectOfType<ShopManager>();
+    
 
+        if (shopManagerInstance == null)
+        {
+            //CreateShopManager();
+        }
 
 
 
         coinManager = CoinManager.Instance;
     }
 
+      void Start()
+	{
+        playerController = FindObjectOfType<PlayerController>();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if(SceneManager.GetActiveScene().name == "Stage1")
+        {
+           rewardedAdsButton._showAdButton.interactable = true;
+        }
+
+        //shopManager = FindObjectOfType<ShopManager>();
+
+        Data data = GetComponent<Data>();
+        data.JsonLoad();
+
+    }
+
+    // 최대 체력 값이 변경될 때마다 데이터 제이슨에 저장
+    public void UpdateMaxHealth(int newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+
+        // 데이터 제이슨에 저장
+        data.JsonSave();
+    }
+
+    
     private void CreateCoinManager()
     {
         if (coinManagerPrefab != null)
@@ -104,6 +146,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /*
     private void CreatePlayerStats()
     {
         if (playerStatsPrefab != null)
@@ -117,7 +160,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
+    
+    private void CreateShopManager()
+    {
+        if (shopManagerPrefad != null)
+        {
+            shopManagerInstance = Instantiate(shopManagerPrefad).GetComponent<ShopManager>();
+            DontDestroyOnLoad(shopManagerInstance.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("ShopManager prefab is missing!");
+        }
+    }
+    */
+    
 
     //이 버튼을 누르면
     public void RestartGame()
@@ -169,16 +226,7 @@ public class GameManager : MonoBehaviour
 
 	}
 
-    void Start()
-	{
-        playerController = FindObjectOfType<PlayerController>();
-        Debug.Log(SceneManager.GetActiveScene().name);
-        if(SceneManager.GetActiveScene().name == "Stage1")
-        {
-           rewardedAdsButton._showAdButton.interactable = true;
-        }
- 
-    }
+  
 
     public void Skip()
     {

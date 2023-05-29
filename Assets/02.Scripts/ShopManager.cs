@@ -2,47 +2,55 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public static ShopManager Instance { get; private set; }
+    public static ShopManager instance { get; private set; }
 
     private CoinManager coinManager;
     private PlayerStats playerStats;
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
+        if (instance != null && instance != this)
         {
             Destroy(gameObject);
             return;
         }
 
-        Instance = this;
+        instance = this;
 
         coinManager = CoinManager.Instance;
         playerStats = FindObjectOfType<PlayerStats>();
         coinManager = FindObjectOfType<CoinManager>();
+
     }
 
+    private void Start()
+    {
+        GameManager.instance.shopManager = this;
+    }
     public void BuyMaxHealthUpgrade(int price, int maxHealthIncrease)
     {
-        if (coinManager != null && playerStats != null)
+        if (coinManager != null)
         {
             if (coinManager.Coin >= price && maxHealthIncrease > 0)
             {
-                Debug.LogWarning("yes");
                 coinManager.AddCoin(-price);
-                playerStats.IncreaseMaxHealth(maxHealthIncrease);
+                //playerStats.IncreaseMaxHealth(maxHealthIncrease);
+
+                // 최대 체력 변경 후 게임 매니저에 업데이트 요청
+                GameManager.instance.UpdateMaxHealth(maxHealthIncrease);
+
                 // 아이템을 구매하는 코드 작성
             }
             else
             {
-                Debug.LogWarning("no");
                 // 구매 불가능한 처리
             }
         }
         else
         {
-            Debug.LogWarning("CoinManager or PlayerStats not found.");
+            Debug.LogWarning("CoinManager not found.");
         }
     }
+
 
 }

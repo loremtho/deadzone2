@@ -8,7 +8,12 @@ public class CoinManager : MonoBehaviour
     public static CoinManager Instance { get { return instance; } }
 
     private int coin = 500;
-    public int Coin { get { return coin; } }
+
+    public int Coin
+    {
+        get { return coin; } // 코인 값을 반환
+        set { coin = value; } // 코인 값을 설정
+    }
 
     private TextMeshProUGUI coinText;
     private bool coinTextInitialized = false;
@@ -25,11 +30,15 @@ public class CoinManager : MonoBehaviour
         }
 
         instance = this;
-        DontDestroyOnLoad(gameObject);
 
+        DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void Start()
+    {
+        GameManager.instance.coinManager= this;
+    }
     public void StartTrackingCoinText()
     {
         // 코인 텍스트 추적 시작
@@ -40,6 +49,8 @@ public class CoinManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
+
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

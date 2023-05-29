@@ -9,7 +9,7 @@ public class Particle : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Coin"))
         {
             Debug.Log("캐릭터 코인과 충돌");
             GameObject particle =  Instantiate(coin, transform.position, Quaternion.identity);

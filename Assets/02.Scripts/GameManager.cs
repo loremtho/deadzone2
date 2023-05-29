@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour
     private int currentHealth;
     private PlayerStats playerStats;
     public ShopManager shopManager;
+    private SoundManager soundManager;
+    public AudioClip Button;
     public CoinManager coinManager;
 
    
@@ -222,17 +224,20 @@ public class GameManager : MonoBehaviour
     {
         // 게임 상태 초기화
         // 첫 장면을 가져온다
+        SoundManager.instance.SoundPlay("Button", Button);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		Debug.Log("게임 다시 시작!");
     }
 
 	public void GoHome()  //정지 UI에서 홈 화면으로 넘어감
 	{
+        SoundManager.instance.SoundPlay("Button", Button);
 		SceneManager.LoadScene("Home");
 	}
 
 	public void GameStart()   //홈 화면에서 Stage1 로드하고 시간 흐르게 함
 	{
+        SoundManager.instance.SoundPlay("Button", Button);
 		SceneManager.LoadScene(1);
 		Time.timeScale = 1;
 	}
@@ -253,7 +258,7 @@ public class GameManager : MonoBehaviour
 
     public void Menu()   //게임 메뉴 실행
     {
-       
+        SoundManager.instance.SoundPlay("Button", Button);
         MenuUI.SetActive(true);
 		PauseGame();
 
@@ -261,7 +266,7 @@ public class GameManager : MonoBehaviour
 
     public void Exit()   //게임 메뉴 끄기
     {
-
+        SoundManager.instance.SoundPlay("Button", Button);
         MenuUI.SetActive(false);
 		ResumeGame();
 
@@ -269,17 +274,17 @@ public class GameManager : MonoBehaviour
 
   
 
-    public void Skip()
+    /*public void Skip()
     {
         // 게임 씬을 로딩합니다.
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-
+        SoundManager.instance.SoundPlay("Button", Button);
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
-    }
+    }*/
 
     
 
@@ -295,6 +300,7 @@ public class GameManager : MonoBehaviour
 
 	public void PauseGame()
 	{
+        SoundManager.instance.SoundPlay("Button", Button);
 		Time.timeScale = 0f;
 		isPaused = true;
 		
@@ -302,6 +308,7 @@ public class GameManager : MonoBehaviour
 
 	public void ResumeGame()
 	{
+        SoundManager.instance.SoundPlay("Button", Button);
         MenuUI.SetActive(false);
         Time.timeScale = 1f;
 		isPaused = false;
@@ -309,6 +316,7 @@ public class GameManager : MonoBehaviour
 
     public void store()
     {
+        SoundManager.instance.SoundPlay("Button", Button);
         storeCanvas.SetActive(true);
         CoinManager.Instance.UpdateCoinText();
         Data.Instance.JsonSave();
@@ -316,6 +324,7 @@ public class GameManager : MonoBehaviour
 
     public void storeExit()
     {
+        SoundManager.instance.SoundPlay("Button", Button);
         storeCanvas.SetActive(false);
      
     }
@@ -327,6 +336,7 @@ public class GameManager : MonoBehaviour
 
     public void NextStage()
     {
+        SoundManager.instance.SoundPlay("Button", Button);
         // 현재 씬을 측정하여 다음 씬으로 전환
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;

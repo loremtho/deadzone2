@@ -358,9 +358,9 @@ namespace TempleRun.Player {
                 UpdateHealthText();
             }
 
-            float distance = playerController.GetDistanceTraveled(); //거리측정 UI
-            distanceText.text = $"{distance:F1}m"; //입력는 거리 출력 언어 설정  
-            float playerDistance = playerController.GetDistanceTraveled();
+            float distance = GetDistanceTraveled(); //거리측정 UI
+            distanceText.text = "{distance:F1}m"; //입력는 거리 출력 언어 설정  
+            float playerDistance = GetDistanceTraveled();
             float remainingDistance = Mathf.Max(0f, destinationDistance - playerDistance);
             distanceSlider.value = 1f - (remainingDistance / destinationDistance);
         }
@@ -411,7 +411,7 @@ namespace TempleRun.Player {
         {
             if (other.gameObject.CompareTag("Obstacle")) //장애물에 부딪히면 체력 감소 처리
             {
-                TakeDamage(2);
+                TakeDamage(0);
                 SoundManager.instance.SoundPlay("Hit", HitClip);
                 SoundManager.instance.SoundPlay("HitDamager", HitDamageClip);
             }
@@ -504,7 +504,6 @@ namespace TempleRun.Player {
             gameObject.SetActive(false);
             gameManager.gameOverCanvas.SetActive(true);
             gameManager.interstitialAd.ShowAd();
-            Debug.Log("00000");
         }
 
 

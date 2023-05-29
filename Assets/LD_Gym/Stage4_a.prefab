@@ -1331,6 +1331,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 5828910454064952354, guid: cc3ffe8778265ec44a7ffad3507eb336,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5922806071160349832, guid: cc3ffe8778265ec44a7ffad3507eb336,
         type: 3}
       propertyPath: m_RootOrder
@@ -1541,6 +1546,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1439199628419438167, guid: d722d7549dc26824fb6435c9605da0bc,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d722d7549dc26824fb6435c9605da0bc, type: 3}
 --- !u!4 &7130613783872451945 stripped
@@ -1631,6 +1641,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 4720224131907352034, guid: 9c53148d2fc2f644b91458f92dc99be7,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4852594821954561352, guid: 9c53148d2fc2f644b91458f92dc99be7,
         type: 3}
       propertyPath: m_RootOrder

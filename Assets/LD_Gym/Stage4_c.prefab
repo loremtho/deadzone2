@@ -735,6 +735,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 124821779517673508, guid: ede72b7374a3b7847bd0f81d3caa30cd,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 243395944716203006, guid: ede72b7374a3b7847bd0f81d3caa30cd,
         type: 3}
       propertyPath: m_Name
@@ -810,6 +815,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 8112713036953827849, guid: 037f38142d3923142981c8b4758c5f3e,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8232683575510598893, guid: 037f38142d3923142981c8b4758c5f3e,
         type: 3}
       propertyPath: m_RootOrder
@@ -1110,6 +1120,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 4071581667794775398, guid: f5bbee1dcc97fc6418b4a470ccd2c547,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4203919371804689960, guid: f5bbee1dcc97fc6418b4a470ccd2c547,
         type: 3}
       propertyPath: m_RootOrder

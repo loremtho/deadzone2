@@ -1187,6 +1187,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 1160539661786664859, guid: 956e57f00c58ebe40ac0f1d077e5ab8d,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1160539661789565851, guid: 956e57f00c58ebe40ac0f1d077e5ab8d,
         type: 3}
       propertyPath: m_Name
@@ -1637,6 +1642,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 5000308952948369919, guid: 41638a1b2ee87d744a29079d9b2c1f87,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5166422543575406363, guid: 41638a1b2ee87d744a29079d9b2c1f87,
         type: 3}
       propertyPath: m_RootOrder
@@ -1922,6 +1932,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8303123002223998626, guid: 60161b0ca3cddc04cbdce16d05b93e4e,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60161b0ca3cddc04cbdce16d05b93e4e, type: 3}
 --- !u!4 &2179288526912192991 stripped
@@ -1996,6 +2011,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983822298196657506, guid: cfcaa274d594fa0438063138cba284c6,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfcaa274d594fa0438063138cba284c6, type: 3}
@@ -2087,6 +2107,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 7804834730923265302, guid: b2dce6ffc3091374497088df46dce987,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7964101670447525370, guid: b2dce6ffc3091374497088df46dce987,
         type: 3}
       propertyPath: m_RootOrder

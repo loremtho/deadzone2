@@ -727,6 +727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 283819612853315916, guid: 3b0d10743db3a3647a76075cd2b5b235,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b0d10743db3a3647a76075cd2b5b235, type: 3}
 --- !u!4 &1553561160106159656 stripped

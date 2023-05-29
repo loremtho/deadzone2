@@ -811,6 +811,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 3009607815875453842, guid: 748453404eaefbe42aee506c203b0b9a,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3103611043473015678, guid: 748453404eaefbe42aee506c203b0b9a,
         type: 3}
       propertyPath: m_RootOrder
@@ -946,6 +951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_05
       objectReference: {fileID: 0}
+    - target: {fileID: 6882460246742403569, guid: acae24bd9c0469b4ea58ee5ce298a887,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acae24bd9c0469b4ea58ee5ce298a887, type: 3}
 --- !u!4 &4770567207626347719 stripped
@@ -1020,6 +1030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670844579018006132, guid: f50a09e8a5afaf94f8e0571b808bf56f,
+        type: 3}
+      propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f50a09e8a5afaf94f8e0571b808bf56f, type: 3}

@@ -30,8 +30,20 @@ public class CoinManager : MonoBehaviour
 
     private void Awake()
     {
+
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
+        DontDestroyOnLoad(gameObject);
+
         UpdateCoinText();
         LoadInitialCoin();
+       
     }
 
 
@@ -72,7 +84,7 @@ public class CoinManager : MonoBehaviour
 
     public void UpdateCoinText()
     {
-        TextMeshProUGUI coinText = FindObjectOfType<TextMeshProUGUI>();
+        coinText = GameObject.Find("CoinText").GetComponent<TextMeshProUGUI>();
         if (coinText != null)
         {
             coinText.text = coin.ToString();

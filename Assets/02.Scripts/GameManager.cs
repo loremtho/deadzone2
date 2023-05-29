@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private PlayerStats playerStatsInstance;   // 생성된 플레이어 스탯 인스턴스
     private ShopManager shopManagerInstance;   // 생성된 상점 매니저 인스턴스
 
+
     private PlayerController playerController;
     private int currentHealth;
     private PlayerStats playerStats;
@@ -92,8 +93,11 @@ public class GameManager : MonoBehaviour
          {
              CreateCoinManager();
          }
-        */
-
+        
+        if (coinManagerInstance == null)
+        {
+            CreateCoinManager();
+        }
 
         if (coinManagerInstance == null)
         {
@@ -129,7 +133,7 @@ public class GameManager : MonoBehaviour
             //CreateShopManager();
         }
 
-
+        */
         coinManagerInstance = CoinManager.Instance;
 
      
@@ -141,7 +145,17 @@ public class GameManager : MonoBehaviour
 	{
         playerController = FindObjectOfType<PlayerController>();
         Debug.Log(SceneManager.GetActiveScene().name);
-        if(SceneManager.GetActiveScene().name == "Stage1")
+
+        if (playerController != null)
+        {
+            playerController.maxHealth = 5; // 초기 최대 체력 값으로 설정
+        }
+        else
+        {
+            Debug.LogWarning("PlayerController not found.");
+        }
+
+        if (SceneManager.GetActiveScene().name == "Stage1")
         {
            rewardedAdsButton._showAdButton.interactable = true;
         }
@@ -153,12 +167,17 @@ public class GameManager : MonoBehaviour
     }
 
     // 최대 체력 값이 변경될 때마다 데이터 제이슨에 저장
-    public void UpdateMaxHealth(int newMaxHealth)
+    public void UpdateMaxHealth(int increaseAmount)
     {
-        maxHealth = newMaxHealth;
-
-        // 데이터 저장
-        data.JsonSave();
+        if (playerController != null)
+        {
+            playerController.maxHealth += increaseAmount;
+            Debug.Log("Max health updated. Current max health: " + playerController.maxHealth);
+        }
+        else
+        {
+            Debug.LogWarning("PlayerController not found. Cannot update max health.");
+        }
     }
 
     private void CreateCoinManager()

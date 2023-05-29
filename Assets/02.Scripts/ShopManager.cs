@@ -39,6 +39,7 @@ public class ShopManager : MonoBehaviour
                 // 최대 체력 변경 후 게임 매니저에 업데이트 요청
                 GameManager.instance.UpdateMaxHealth(maxHealthIncrease);
 
+
                 // 아이템을 구매하는 코드 작성
 
                 coinManager.SaveCoin();

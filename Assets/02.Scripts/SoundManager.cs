@@ -108,7 +108,6 @@ public class SoundManager : MonoBehaviour
         audioSource.clip = clip;
         audioSource.volume = 0.2f;
         audioSource.Play();
-        Debug.Log("효과음 재생중!");
 
         Destroy(go, clip.length);
     }

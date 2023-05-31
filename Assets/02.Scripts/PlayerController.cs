@@ -185,7 +185,6 @@ namespace TempleRun.Player {
 
         private void OnSwipeLeft()
         {
-            Debug.Log("왼쪽 스와이프 감지");
 
 
             if (currentLaneIndex > 0)
@@ -202,7 +201,6 @@ namespace TempleRun.Player {
 
         private void OnSwipeRight()
         {
-            Debug.Log("오른쪽 스와이프 감지");
 
             if (currentLaneIndex < 2)
             {
@@ -216,7 +214,7 @@ namespace TempleRun.Player {
 
         }
         private void OnSwipeUp() { 
-            Debug.Log("위 스와이프 감지");
+
             if (IsGrounded())
             {
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * gravity * -5f); // 점프 동작 구현
@@ -226,7 +224,6 @@ namespace TempleRun.Player {
             }
         }
         private void OnSwipeDown() { 
-            Debug.Log("아래 스와이프 감지");
 
             if (!sliding && IsGrounded())
             {
@@ -359,7 +356,7 @@ namespace TempleRun.Player {
             }
 
             float distance = GetDistanceTraveled(); //거리측정 UI
-            distanceText.text = "{distance:F1}m"; //입력는 거리 출력 언어 설정  
+            distanceText.text = $"{distance:F1}m"; //입력는 거리 출력 언어 설정  
             float playerDistance = GetDistanceTraveled();
             float remainingDistance = Mathf.Max(0f, destinationDistance - playerDistance);
             distanceSlider.value = 1f - (remainingDistance / destinationDistance);
@@ -398,7 +395,6 @@ namespace TempleRun.Player {
 
         private void GameOver()
         {
-            Debug.Log("Game Over");
             gameOverEvent.Invoke((int)score);
             gameObject.SetActive(false);
             //게임 오버 캔버스 활성화 
@@ -411,7 +407,7 @@ namespace TempleRun.Player {
         {
             if (other.gameObject.CompareTag("Obstacle")) //장애물에 부딪히면 체력 감소 처리
             {
-                TakeDamage(0);
+                TakeDamage(1);
                 SoundManager.instance.SoundPlay("Hit", HitClip);
                 SoundManager.instance.SoundPlay("HitDamager", HitDamageClip);
             }

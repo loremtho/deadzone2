@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingImage: {fileID: 1711485980}
-  imageDuration: 15
+  imageDuration: 10
   fadeDuration: 1
 --- !u!114 &1053719413
 MonoBehaviour:

@@ -1650,10 +1650,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5475724674181686055}
     m_Modifications:
+    - target: {fileID: 2856605330809037360, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2856605330809037360, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
+      objectReference: {fileID: 0}
     - target: {fileID: 6832718976393472909, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
         type: 3}
       propertyPath: m_Name
       value: Corridor Doors Lights 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832718976393901989, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832718976393901989, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6832718976393901997, guid: 1f6fcb14597a93943b2e8c38f6d930b7,
         type: 3}

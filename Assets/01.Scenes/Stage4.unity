@@ -5484,4 +5484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 1058068280782241467, guid: 5b9bc5cd64f13a64fb114153c08c9e8d, type: 3}
+  obstacle: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7,
+    type: 3}
   destroyDelay: 0.1

@@ -29,7 +29,7 @@ public class Data : MonoBehaviour
     }
 
     private string path;
-    public int initialCoin = 250;
+    public int initialCoin = 0;
     public int initialMaxHealth = 4;
 
     private void Awake()

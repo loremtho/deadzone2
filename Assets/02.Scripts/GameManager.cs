@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     public AudioClip Button;
     public CoinManager coinManager;
 
+
    
 
 
@@ -88,57 +89,7 @@ public class GameManager : MonoBehaviour
 
         // 데이터 로드
         data.JsonLoad();
-
-        // 게임 매니저가 이미 있는 경우 중복 생성을 방지하기 위해 검사
-        /*
-         if (coinManagerInstance == null)
-         {
-             CreateCoinManager();
-         }
-        
-        if (coinManagerInstance == null)
-        {
-            CreateCoinManager();
-        }
-
-        if (coinManagerInstance == null)
-        {
-            // 이미 생성된 PlayerStats 인스턴스가 있는지 확인
-            CoinManager existingCoinManager = FindObjectOfType<CoinManager>();
-            if (existingCoinManager != null)
-            {
-                coinManagerInstance = existingCoinManager;
-            }
-            else
-            {
-                CreateCoinManager();
-            }
-        }
-
-        if (playerStatsInstance == null)
-        {
-            // 이미 생성된 PlayerStats 인스턴스가 있는지 확인
-            PlayerStats existingPlayerStats = FindObjectOfType<PlayerStats>();
-            if (existingPlayerStats != null)
-            {
-                playerStatsInstance = existingPlayerStats;
-            }
-            else
-            {
-                //CreatePlayerStats();
-            }
-        }
-
-
-        if (shopManagerInstance == null)
-        {
-            //CreateShopManager();
-        }
-
-        */
         coinManagerInstance = CoinManager.Instance;
-
-     
         data.JsonLoad();
 
     }
@@ -372,10 +323,6 @@ public class GameManager : MonoBehaviour
             clearCanvas.SetActive(true);
         }
     }
-
-
-    
-
 
 
 }
